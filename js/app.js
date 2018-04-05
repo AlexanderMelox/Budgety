@@ -13,7 +13,6 @@ const controller = (function(budgetCtrl, UICtrl) {
 
     // 1. Get the field input data
     const input = UICtrl.getInput();
-    console.log(input);
 
     // 2. Add the item to the budget controller
 
