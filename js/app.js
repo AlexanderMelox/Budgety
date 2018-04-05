@@ -1,6 +1,13 @@
 const controller = (function(budgetCtrl, UICtrl) {
 
-  const DOM = UICtrl.DOMStrings;
+  const setupEventListeners = () => {
+    const DOM = UICtrl.DOMStrings;    
+
+    document.querySelector(DOM.inputBtn).addEventListener('click', ctlrAddItem);
+
+    document.addEventListener('keypress', event => event.keycode === 13 || event.which === 13 ? ctlrAddItem() : null );
+  };
+
 
   const ctlrAddItem = () => {
 
@@ -16,10 +23,15 @@ const controller = (function(budgetCtrl, UICtrl) {
 
     // 5. Display the budget on the UI
 
-  }
+  };
 
-  document.querySelector(DOM.inputBtn).addEventListener('click', ctlrAddItem);
-
-  document.addEventListener('keypress', event => event.keycode === 13 || event.which === 13 ? ctlrAddItem() : null );
+  return {
+    init: () => {
+      console.log('Application has started.');
+      setupEventListeners();
+    }
+  };
 
 })(budgetController, UIController); 
+
+controller.init();

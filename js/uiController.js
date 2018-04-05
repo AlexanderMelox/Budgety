@@ -8,7 +8,7 @@ const UIController = (function() {
   }
 
   return {
-    getInput: function() {
+    getInput: () => {
       const type = document.querySelector(DOMStrings.inputType).value; // Will be either inc or exp
       const description = document.querySelector(DOMStrings.inputDescription).value;
       const value = document.querySelector(DOMStrings.inputValue).value;
