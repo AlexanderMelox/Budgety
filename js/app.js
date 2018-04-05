@@ -1,7 +1,7 @@
 const controller = (function(budgetCtrl, UICtrl) {
 
-  document.querySelector('.add__btn').addEventListener('click', function() {
-      
+  const ctlrAddItem = () => {
+
     // 1. Get the field input data
 
     // 2. Add the item to the budget controller
@@ -12,14 +12,12 @@ const controller = (function(budgetCtrl, UICtrl) {
 
     // 5. Display the budget on the UI
 
-  });
+    console.log(1);
 
-  document.addEventListener('keypress', function(event) {
+  }
 
-    if (event.keyCode === 13 || event.which === 13) {
-      console.log('ENTER was pressed.');
-    }
+  document.querySelector('.add__btn').addEventListener('click', ctlrAddItem);
 
-  });
+  document.addEventListener('keypress', event => event.keycode === 13 || event.which === 13 ? ctlrAddItem() : null );
 
 })(budgetController, UIController); 
