@@ -3,6 +3,8 @@ const controller = (function(budgetCtrl, UICtrl) {
   const ctlrAddItem = () => {
 
     // 1. Get the field input data
+    const input = UICtrl.getInput();
+    console.log(input);
 
     // 2. Add the item to the budget controller
 
@@ -11,8 +13,6 @@ const controller = (function(budgetCtrl, UICtrl) {
     // 4. Calculate the budget
 
     // 5. Display the budget on the UI
-
-    console.log(1);
 
   }
 
