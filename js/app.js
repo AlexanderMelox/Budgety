@@ -1,5 +1,7 @@
 const controller = (function(budgetCtrl, UICtrl) {
 
+  const DOM = UICtrl.DOMStrings;
+
   const ctlrAddItem = () => {
 
     // 1. Get the field input data
@@ -16,7 +18,7 @@ const controller = (function(budgetCtrl, UICtrl) {
 
   }
 
-  document.querySelector('.add__btn').addEventListener('click', ctlrAddItem);
+  document.querySelector(DOM.inputBtn).addEventListener('click', ctlrAddItem);
 
   document.addEventListener('keypress', event => event.keycode === 13 || event.which === 13 ? ctlrAddItem() : null );
 
