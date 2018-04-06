@@ -60,9 +60,19 @@ const UIController = (function() {
       newHtml = html.replace('%id%', obj.id);
       newHtml = newHtml.replace('%description%', obj.description);
       newHtml = newHtml.replace('%value%', obj.value);
-      
+
       // 3. Insert the HTML into the DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+
+    },
+    clearFields: () => {
+      const fields = document.querySelectorAll(`${DOMStrings.inputDescription} , ${DOMStrings.inputValue}`);
+
+      const fieldsArr = Array.prototype.slice.call(fields);
+
+      fieldsArr.forEach(item => item.value = '');
+
+      fieldsArr[0].focus();
 
     },
     DOMStrings
