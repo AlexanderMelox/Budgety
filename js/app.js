@@ -15,9 +15,10 @@ const controller = (function(budgetCtrl, UICtrl) {
     const input = UICtrl.getInput();
 
     // 2. Add the item to the budget controller
-    const newItem = budgetCtrl.addItem(input);
+    const newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
     // 3. Add the new item to the UI
+    UICtrl.addListItem(newItem, input.type);
 
     // 4. Calculate the budget
 
