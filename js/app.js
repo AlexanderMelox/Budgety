@@ -1,10 +1,13 @@
 const controller = (function(budgetCtrl, UICtrl) {
 
   const setupEventListeners = () => {
+    // Loads DOM elements
     const DOM = UICtrl.DOMStrings;    
 
+    // Sets up click to add item to budget
     document.querySelector(DOM.inputBtn).addEventListener('click', ctlrAddItem);
 
+    // Checks if the user presses the 'enter' key to add an item to budget
     document.addEventListener('keypress', event => event.keycode === 13 || event.which === 13 ? ctlrAddItem() : null );
   };
 
@@ -26,6 +29,7 @@ const controller = (function(budgetCtrl, UICtrl) {
     // 1. Get the field input data
     const input = UICtrl.getInput();
 
+    // Validates if the description is not empty, the value is a number and is greater than 0
     if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
       // 2. Add the item to the budget controller
       const newItem = budgetCtrl.addItem(input.type, input.description, input.value);

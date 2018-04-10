@@ -16,9 +16,10 @@ const UIController = (function() {
   return {
     getInput: () => {
       const type = document.querySelector(DOMStrings.inputType).value; // Will be either inc or exp
-      const description = document.querySelector(DOMStrings.inputDescription).value;
-      const value = parseFloat(document.querySelector(DOMStrings.inputValue).value);
+      const description = document.querySelector(DOMStrings.inputDescription).value; // gets the description
+      const value = parseFloat(document.querySelector(DOMStrings.inputValue).value); // gets the value
 
+      // Returns an object with the user's input
       return {
         type,
         description,
