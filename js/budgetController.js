@@ -9,7 +9,7 @@ const budgetController = (function() {
   };
 
   class Income {
-    constructor() {
+    constructor(id, description, value) {
       this.id = id;
       this.description = description;
       this.value = value;
@@ -60,6 +60,19 @@ const budgetController = (function() {
 
       // Return the new element
       return newItem;
+    },
+    deleteItem: (type, id) => {
+
+      const ids = data.allItems[type].map(current => {
+        return current.id;
+      });
+
+      const index = ids.indexOf(id);
+
+      if (index !== -1) {
+        data.allItems[type].splice(index, 1);
+      }
+
     },
     calculateBudget: () => {
 

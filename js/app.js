@@ -9,6 +9,8 @@ const controller = (function(budgetCtrl, UICtrl) {
 
     // Checks if the user presses the 'enter' key to add an item to budget
     document.addEventListener('keypress', event => event.keycode === 13 || event.which === 13 ? ctlrAddItem() : null );
+
+    document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
   };
 
   const updateBudget = () => {
@@ -42,6 +44,29 @@ const controller = (function(budgetCtrl, UICtrl) {
 
       // 5. Calculate and update budget
       updateBudget();
+    }
+
+  };
+
+  const ctrlDeleteItem = (event) => {
+
+    const itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+    if (itemID) {
+
+      const splitID = itemID.split('-');
+      const type = splitID[0];
+      const ID = parseInt(splitID[1]);
+
+      // 1. Delete the item from the data structure
+      budgetCtrl.deleteItem(type, ID);
+
+      // 2. Delete the item from the UI
+      UICtrl.deleteListItem(itemID);
+
+      // 3. Update and show the new budget
+      updateBudget();
+
     }
 
   };

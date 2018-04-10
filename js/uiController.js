@@ -10,7 +10,8 @@ const UIController = (function() {
     budgetLabel: '.budget__value',
     incomeLabel: '.budget__income--value',
     expensesLabel: '.budget__expenses--value',
-    percentageLabel: '.budget__expenses--percentage'
+    percentageLabel: '.budget__expenses--percentage',
+    container: '.container'
   };
 
   return {
@@ -36,7 +37,7 @@ const UIController = (function() {
       if (type === 'inc') {
         element = DOMStrings.incomeContainer;
         html = `
-          <div class="item clearfix" id="income-%id%">
+          <div class="item clearfix" id="inc-%id%">
             <div class="item__description">%description%</div>
             <div class="right clearfix">
               <div class="item__value">%value%</div>
@@ -49,7 +50,7 @@ const UIController = (function() {
         element = DOMStrings.expenseContainer;
 
         html = `
-          <div class="item clearfix" id="expense-%id%">
+          <div class="item clearfix" id="exp-%id%">
             <div class="item__description">%description%</div>
             <div class="right clearfix">
               <div class="item__value">%value%</div>
@@ -69,6 +70,10 @@ const UIController = (function() {
       // 3. Insert the HTML into the DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
 
+    },
+    deleteListItem: (selectorID) => {
+      const el = document.getElementById(selectorID);
+      el.parentNode.removeChild(el);
     },
     clearFields: () => {
       const fields = document.querySelectorAll(`${DOMStrings.inputDescription} , ${DOMStrings.inputValue}`);
