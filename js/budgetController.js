@@ -91,6 +91,11 @@ const budgetController = (function() {
       }
 
     },
+    calculatePercentages: () => {
+
+      
+
+    },
     getBudget: () => {
       return {
         budget: data.budget,
